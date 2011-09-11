@@ -2,6 +2,17 @@
 class PagesController extends AppController
 {
 	var $name = 'Pages';
+	
+	function display()
+	{
+		$page = $this->Page->find('first', array(
+			'order' => 'position ASC'
+		));
+		
+		$this->set('page', $page);
+		
+		$this->render('view');
+	}
 
 	function index()
 	{
