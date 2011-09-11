@@ -18,8 +18,8 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
-	<?=$html->meta('icon', $html->url('/favicon.ico'))?>
-
+	<?=$this->Html->meta('icon')?>
+	
 	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -27,7 +27,7 @@
 
 	<!-- CSS: implied media=all -->
 	<!-- CSS concatenated and minified via ant build script-->
-	<?=$this->AssetCompress->css('default');?>
+	<?=$this->AssetCompress->css('default')?>
 	
 	<!-- end CSS-->
 
