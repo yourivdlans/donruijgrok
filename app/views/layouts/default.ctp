@@ -1,4 +1,6 @@
-<!doctype html>
+<?=$html->docType('xhtml-trans');?>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>		<html class="no-js ie7 oldie" lang="en"> <![endif]-->
@@ -15,6 +17,8 @@
 	<title></title>
 	<meta name="description" content="">
 	<meta name="author" content="">
+	
+	<?=$html->meta('icon', $html->url('/favicon.ico'))?>
 
 	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="viewport" content="width=device-width,initial-scale=1">
@@ -23,8 +27,7 @@
 
 	<!-- CSS: implied media=all -->
 	<!-- CSS concatenated and minified via ant build script-->
-	<link rel="stylesheet" href="css/style.css">
-	<?=$this->Html->css('style')?>
+	<?=$this->AssetCompress->css('default');?>
 	
 	<!-- end CSS-->
 
@@ -62,11 +65,10 @@
 
 
 	<!-- scripts concatenated and minified via ant build script-->
-	<?=$this->Html->script('plugins')?>
-	<?=$scripts_for_layout?>
-	
-	<?=$this->Html->script('script')?>
-	
+	<?php
+	echo $this->AssetCompress->script('default');
+	echo $scripts_for_layout;
+	?>
 	<!-- end scripts-->
 
 	
