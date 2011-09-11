@@ -3,7 +3,7 @@ class PagesController extends AppController
 {
 	var $name = 'Pages';
 	
-	function display()
+	function first()
 	{
 		$page = $this->Page->find('first', array(
 			'order' => 'position ASC'
