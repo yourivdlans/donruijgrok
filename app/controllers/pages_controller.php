@@ -31,7 +31,6 @@ class PagesController extends AppController
 
 	function admin_index()
 	{
-		$this->Page->recursive = 0;
 		$this->set('pages', $this->paginate());
 	}
 
