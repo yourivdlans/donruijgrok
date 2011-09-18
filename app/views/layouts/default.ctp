@@ -45,20 +45,28 @@
 <body>
 
 	<div id="container">
-		<header>
-
-		</header>
+	
+		<div id="logo-container">
+			<div id="block"></div>
+			<div id="logo"></div>
+		</div>
+		
+		<div id="menu">
+			<a class="item">HOME</a>
+			<a class="item">PICTURES</a>
+			<a class="item">BIO</a>
+			<a class="item">BOOKINGS &amp; DATES</a>
+			<a class="item">CONTACT</a>
+		</div>
+		
 		<div id="main" role="main">
 			<?=$content_for_layout?>
 		</div>
-		<footer>
-
-		</footer>
 	</div> <!--! end of #container -->
 
 
 	<!-- JavaScript at the bottom for fast page loading -->
-
+	
 	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
@@ -69,6 +77,7 @@
 	echo $this->AssetCompress->script('default');
 	echo $scripts_for_layout;
 	?>
+	<script type="text/javascript"> Cufon.now(); </script>
 	<!-- end scripts-->
 
 	
