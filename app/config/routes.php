@@ -27,3 +27,18 @@
  * to use (in this case, /app/views/pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'first'));
+	
+	Router::connect(
+		'/pages/:id:slug',
+		array(
+			'controller' => 'pages',
+			'action' => 'view'
+		),
+		array(
+			'pass' => array('id'),
+			'id' => '[0-9]+',
+			'slug' => '-.*?'
+		)
+	);
+	
+	Router::connect('/admin', array('controller' => 'pages', 'action' => 'index', 'admin' => true));
