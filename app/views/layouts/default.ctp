@@ -51,13 +51,7 @@
 			<div id="logo"></div>
 		</div>
 		
-		<div id="menu">
-			<a class="item">HOME</a>
-			<a class="item">PICTURES</a>
-			<a class="item">BIO</a>
-			<a class="item">BOOKINGS &amp; DATES</a>
-			<a class="item">CONTACT</a>
-		</div>
+		<?=$this->element('front_end_menu')?>
 		
 		<div id="main" role="main">
 			<?=$content_for_layout?>
