@@ -35,5 +35,14 @@ class Page extends AppModel
 			),
 		),
 	);
+	
+	public $staticActions = array(
+		'pictures' => array(
+			'controller' => 'pictures'
+		),
+		'bookings_dates' => array(
+			'controller' => 'bookings'
+		)
+	);
 }
 ?>
