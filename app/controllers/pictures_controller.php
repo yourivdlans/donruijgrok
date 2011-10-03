@@ -5,7 +5,10 @@ class PicturesController extends AppController
 
 	function index()
 	{
-		$this->set('pictures', $this->paginate());
+		$picturesPath = $this->Picture->picturesPath;
+		$pictures = $this->Picture->find('all');
+		
+		$this->set(compact('picturesPath', 'pictures'));
 	}
 	
 	function admin_index()

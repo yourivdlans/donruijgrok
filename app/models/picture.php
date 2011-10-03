@@ -24,5 +24,29 @@ class Picture extends AppModel {
 			),
 		),
 	);
+	
+	var $picturesPath = '/img/pictures/';
+	
+	function afterFind($results)
+	{
+		if(!Set::numeric(array_keys($results)))
+		{
+			$results = array($results);
+		}
+		
+		foreach ( $results as &$result )
+		{
+			$result['Picture']['thumb'] = $this->getThumbnailFromFilename($result['Picture']['filename']);
+		}
+		
+		return $results;
+	}
+	
+	function getThumbnailFromFilename($filename)
+	{
+		$pInfo = pathinfo($filename);
+		$thumb = $pInfo['filename'].'_thumb.'.strtolower($pInfo['extension']);
+		
+		return $thumb;
+	}
 }
-?>
