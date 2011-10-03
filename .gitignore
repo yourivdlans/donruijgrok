@@ -11,7 +11,7 @@
 /app/tmp/sessions/*
 /app/tmp/tests/*
 /app/webroot/cache_*/*
-/app/webroot/img/*
+/app/webroot/img/pictures/*
 /plugins
 /vendors
 !*empty
