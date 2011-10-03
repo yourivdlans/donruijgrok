@@ -26,7 +26,12 @@ class PagesController extends AppController
 			$this->Session->setFlash(__('Invalid page', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('page', $this->Page->read(null, $id));
+		
+		$page = $this->Page->read(null, $id);
+		
+		$this->title_for_layout .= ' - ' . $page['Page']['title'];
+		
+		$this->set(compact('page'));
 	}
 
 	function admin_index()
