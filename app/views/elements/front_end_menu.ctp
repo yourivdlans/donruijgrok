@@ -16,10 +16,21 @@ foreach ( $pages as $page )
 		);
 	}
 	
+	$htmlOptions = array('class' => 'item');
+	
+	if ( isset($this->params['id']) AND $page['Page']['id'] == $this->params['id'] )
+	{
+		$htmlOptions['class'] .= ' active';
+	}
+	else if ( $page['Page']['slug'] == $this->params['controller'] )
+	{
+		$htmlOptions['class'] .= ' active';
+	}
+	
 	echo $this->Html->link(
 		$page['Page']['title'],
 		$url,
-		array('class' => 'item')
+		$htmlOptions
 	);
 }
 ?>
