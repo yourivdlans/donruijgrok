@@ -26,6 +26,10 @@ foreach ( $pages as $page )
 	{
 		$htmlOptions['class'] .= ' active';
 	}
+	else if ( $page['Page']['slug'] == 'home' AND $this->params['action'] == 'first' )
+	{
+		$htmlOptions['class'] .= ' active';
+	}
 	
 	echo $this->Html->link(
 		$page['Page']['title'],
