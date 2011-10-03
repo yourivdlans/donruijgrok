@@ -41,7 +41,7 @@ class Page extends AppModel
 			'controller' => 'pictures'
 		),
 		'bookings_dates' => array(
-			'controller' => 'bookings'
+			'controller' => 'bookings_dates'
 		)
 	);
 }
