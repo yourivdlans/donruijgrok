@@ -1,0 +1,9 @@
+.pictures.index {
+	text-align:center;
+}
+.pictures.index .picture {
+	border:1px solid white;
+	display:inline-block;
+	padding:5px;
+	margin:0 5px 5px 0;
+}
