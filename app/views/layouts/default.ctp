@@ -15,8 +15,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title><?=$title_for_layout?></title>
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="description" content="Don Ruijgrok a techno dj from holland, winner of vinylized 2011">
+	<meta name="author" content="ITflows">
 	
 	<?=$this->Html->meta('icon')?>
 	
@@ -55,6 +55,9 @@
 		
 		<div id="main" role="main">
 			<?=$content_for_layout?>
+		</div>
+		<div id="footer">
+			info@donruijgrok.com
 		</div>
 	</div> <!--! end of #container -->
 
