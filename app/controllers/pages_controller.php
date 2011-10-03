@@ -14,11 +14,6 @@ class PagesController extends AppController
 		$this->render('view');
 	}
 
-	function index()
-	{
-		$this->set('pages', $this->paginate());
-	}
-
 	function view($id = null)
 	{
 		if (!$id)
