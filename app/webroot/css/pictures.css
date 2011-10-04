@@ -1,9 +1,12 @@
 .pictures.index {
-	text-align:center;
+	margin:0 auto;
+	text-align:left;
+	width:355px;
 }
+
 .pictures.index .picture {
-	border:1px solid white;
+	background-color:#282828;
 	display:inline-block;
 	padding:5px;
-	margin:0 5px 5px 0;
+	margin:0 5px 10px 0;
 }
