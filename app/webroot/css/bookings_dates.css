@@ -1,0 +1,9 @@
+.bookingsDates.index table {
+	text-align:left;
+}
+
+.bookingsDates.index table thead th {
+	color:#F4CB0F;
+	font-size:14px;
+	width:15%;
+}
