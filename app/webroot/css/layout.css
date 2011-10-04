@@ -41,17 +41,22 @@ body {
 #menu .item {
 	color:#848484;
 	cursor:pointer;
-	height:50px;
 	font-size:24px;
+	height:50px;
+	margin-right:5px;
+	padding:10px 10px 6px;
 	text-decoration:none;
 	text-transform:uppercase;
-	padding:10px 10px 6px 10px;
 }
 
 #menu .item:hover,
 #menu .item.active {
 	background-color:#272727;
 	color:#FFF;
+}
+
+#menu .item.last {
+	margin-right:0;
 }
 
 #main {

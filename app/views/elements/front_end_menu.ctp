@@ -1,5 +1,7 @@
 <div id="menu">
 <?php
+$i = 1;
+$c = count($pages);
 foreach ( $pages as $page )
 {
 	if ( isset($staticActions[$page['Page']['slug']]) )
@@ -31,11 +33,18 @@ foreach ( $pages as $page )
 		$htmlOptions['class'] .= ' active';
 	}
 	
+	if ( $c == $i )
+	{
+		$htmlOptions['class'] .= ' last';
+	}
+	
 	echo $this->Html->link(
 		$page['Page']['title'],
 		$url,
 		$htmlOptions
 	);
+	
+	$i++;
 }
 ?>
 </div>
