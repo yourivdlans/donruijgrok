@@ -1,4 +1,3 @@
-<?=$this->Html->css('bookings_dates')?>
 <div class="bookingsDates index">
 	<table cellpadding="5" cellspacing="0">
 		<thead>
@@ -6,7 +5,7 @@
 				<th>Date</th>
 				<th>Location</th>
 				<th>Venue</th>
-				<th>&nbsp;</th>
+				<th class="tickets">&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -17,7 +16,7 @@
 			
 			if ( !empty($bookingDate['BookingsDate']['tickets_url']) )
 			{
-				$tickets_url = $this->Html->link('Tickets', $bookingDate['BookingsDate']['tickets_url']);
+				$tickets_url = $this->Html->link('Tickets', $bookingDate['BookingsDate']['tickets_url'], array('target' => '_blank'));
 			}
 			
 			?>
@@ -25,7 +24,7 @@
 				<td><?=$this->Time->format('d/m/Y', $bookingDate['BookingsDate']['date'])?></td>
 				<td><?=$bookingDate['BookingsDate']['location']?></td>
 				<td><?=$bookingDate['BookingsDate']['venue']?></td>
-				<td><?=$tickets_url?></td>
+				<td class="tickets"><?=$tickets_url?></td>
 			</tr>
 			<?php
 		}

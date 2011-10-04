@@ -7,3 +7,12 @@
 	font-size:14px;
 	width:15%;
 }
+
+.bookingsDates.index table .tickets {
+	text-align:right;
+}
+
+.bookingsDates.index table tbody td a,
+.bookingsDates.index table tbody td a:visited {
+	color:#fff0aa;
+}
