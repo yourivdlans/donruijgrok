@@ -3,7 +3,7 @@
 !/app/config/core.php
 !/app/config/bootstrap.example.php
 !/app/config/database.example.php
-!/app/config/asset_compress_example.ini
+!/app/config/asset_compress.ini
 /app/tmp/*
 /app/tmp/cache/models/*
 /app/tmp/cache/persistent/*
