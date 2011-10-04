@@ -57,7 +57,41 @@
 			<?=$content_for_layout?>
 		</div>
 		<div id="footer">
-			info@donruijgrok.com
+			<div>
+				<a target="_blank" href="mailto:&#105;&#110;&#102;&#111;&#064;&#100;&#111;&#110;&#114;&#117;&#105;&#106;&#103;&#114;&#111;&#107;&#046;&#099;&#111;&#109;">
+					&#105;&#110;&#102;&#111;&#064;&#100;&#111;&#110;&#114;&#117;&#105;&#106;&#103;&#114;&#111;&#107;&#046;&#099;&#111;&#109;
+				</a>
+			</div>
+			<div>
+				<?=$this->Html->link(
+					$this->Html->image('icons/facebook_16.png'),
+					'http://www.facebook.com/donruijgrok',
+					array(
+						'escape' => false,
+						'target' => '_blank'
+					)
+				)?>
+			</div>
+			<div>
+				<?=$this->Html->link(
+					$this->Html->image('icons/soundcloud_16.png'),
+					'http://www.soundcloud.com/donruijgrok',
+					array(
+						'escape' => false,
+						'target' => '_blank'
+					)
+				)?>
+			</div>
+			<div>
+				<?=$this->Html->link(
+					$this->Html->image('icons/twitter_16.png'),
+					'http://www.twitter.com/donruijgrok',
+					array(
+						'escape' => false,
+						'target' => '_blank'
+					)
+				)?>
+			</div>
 		</div>
 	</div> <!--! end of #container -->
 

@@ -13,6 +13,7 @@ body {
 	height:auto !important;
 	min-height:100%;
 	width:510px;
+	position:relative;
 }
 
 #logo-container {
@@ -60,11 +61,16 @@ body {
 }
 
 #main {
-	padding:20px 30px;
-	min-height:400px;
+	padding:20px 30px 60px;
 }
 
 #footer {
-	padding:20px 30px;
+	bottom:20px;
+	position:absolute;
+	right:30px;
 	text-align:right;
+}
+
+#footer div {
+	display:inline-block;
 }
