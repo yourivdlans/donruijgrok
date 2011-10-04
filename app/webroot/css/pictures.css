@@ -5,8 +5,16 @@
 }
 
 .pictures.index .picture {
-	background-color:#282828;
 	display:inline-block;
-	padding:5px;
 	margin:0 5px 10px 0;
+}
+
+.pictures.index .picture a {
+	background-color:#282828;
+	display:block;
+	padding:5px;
+}
+
+.pictures.index .picture a:hover {
+	background-color:#FFF;
 }
