@@ -1,6 +1,7 @@
 /app/config/*
 !/app/config/routes.php
 !/app/config/core.php
+!/app/config/bootstrap.example.php
 !/app/config/database.example.php
 !/app/config/asset_compress_example.ini
 /app/tmp/*
