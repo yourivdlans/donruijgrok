@@ -36,6 +36,8 @@ class Picture extends AppModel {
 		
 		foreach ( $results as &$result )
 		{
+			if ( !isset($result['Picture']) ) continue;
+			
 			$result['Picture']['thumb'] = $this->getThumbnailFromFilename($result['Picture']['filename']);
 		}
 		

@@ -41,4 +41,7 @@
 		)
 	);
 	
+	Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));
+	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
+	
 	Router::connect('/admin', array('controller' => 'pages', 'action' => 'index', 'admin' => true));

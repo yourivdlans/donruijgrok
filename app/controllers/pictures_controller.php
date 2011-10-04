@@ -3,6 +3,11 @@ class PicturesController extends AppController
 {
 	var $name = 'Pictures';
 
+	function beforeFilter()
+	{
+		$this->Auth->allow('index');
+	}
+	
 	function index()
 	{
 		$picturesPath = $this->Picture->picturesPath;

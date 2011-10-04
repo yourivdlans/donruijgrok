@@ -3,6 +3,10 @@
 	<fieldset>
  		<legend><?php __('Admin Add Page'); ?></legend>
 	<?php
+		echo $this->Form->input('title');
+		echo $this->Form->input('slug');
+		echo $this->Form->input('content');
+		echo $this->Form->input('position');
 	?>
 	</fieldset>
 <?=$this->Form->end(array('label' => __('Submit', true), 'class' => 'button large'));?>

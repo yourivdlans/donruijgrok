@@ -3,6 +3,11 @@ class PagesController extends AppController
 {
 	var $name = 'Pages';
 	
+	function beforeFilter()
+	{
+		$this->Auth->allow('first', 'view');
+	}
+	
 	function first()
 	{
 		$page = $this->Page->find('first', array(
@@ -32,16 +37,6 @@ class PagesController extends AppController
 	function admin_index()
 	{
 		$this->set('pages', $this->paginate());
-	}
-
-	function admin_view($id = null)
-	{
-		if (!$id)
-		{
-			$this->Session->setFlash(__('Invalid page', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->set('page', $this->Page->read(null, $id));
 	}
 
 	function admin_add()

@@ -1,8 +1,24 @@
 <?php
 class AppController extends Controller
 {
-	var $helpers = array('AssetCompress.AssetCompress');
+	var $components = array('Auth', 'Session');
 	var $title_for_layout = 'Don Ruijgrok';
+	
+	function __construct()
+	{
+		parent::__construct();
+		
+		// Globally include AssetCompress and Number helpers
+		$this->helpers[] = 'AssetCompress.AssetCompress';
+	}
+	
+	function beforeFilter()
+	{
+		$this->Auth->loginAction = array('admin' => true, 'controller' => 'users', 'action' => 'login');
+		
+		$this->Auth->loginRedirect = array('admin' => true, 'controller' => 'pages', 'action' => 'index');
+		$this->Auth->logoutRedirect = array('admin' => false, 'controller' => 'pages', 'action' => 'first');
+	}
 	
 	function beforeRender()
 	{
@@ -19,7 +35,7 @@ class AppController extends Controller
 		// Back-end
 		else
 		{
-			
+			$this->layout = 'admin';
 		}
 	}
 	

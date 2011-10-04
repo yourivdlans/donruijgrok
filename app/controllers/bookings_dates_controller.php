@@ -3,7 +3,12 @@ class BookingsDatesController extends AppController
 {
 	var $name = 'BookingsDates';
 	var $helpers = array('Html', 'Time');
-
+	
+	function beforeFilter()
+	{
+		$this->Auth->allow('index');
+	}
+	
 	function index()
 	{
 		$bookingsDates = $this->BookingsDate->find('all', array(
