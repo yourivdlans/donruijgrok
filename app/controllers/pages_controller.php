@@ -31,6 +31,13 @@ class PagesController extends AppController
 		
 		$page = $this->Page->read(null, $id);
 		
+		if ( $page['Page']['slug'] == 'home' )
+		{
+			$soundcloud_tracks = $this->getLatestSoundcloudTracks('191915');
+			
+			$this->set('soundcloud_tracks', $soundcloud_tracks);
+		}
+		
 		$this->title_for_layout .= ' - ' . $page['Page']['title'];
 		
 		$this->set(compact('page'));
