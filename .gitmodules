@@ -4,3 +4,6 @@
 [submodule "app/vendors/soundcloud"]
 	path = app/vendors/soundcloud
 	url = git://github.com/mptre/php-soundcloud.git
+[submodule "app/webroot/js/libs/soundcloud"]
+	path = app/webroot/js/libs/soundcloud
+	url = git://github.com/soundcloud/Widget-JS-API.git
