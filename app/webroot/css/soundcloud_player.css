@@ -1,0 +1,11 @@
+#soundcloud_players {
+	margin-top:50px;
+}
+
+#soundcloud_players .soundcloud_player {
+	margin-bottom:10px;
+}
+
+#soundcloud_players .soundcloud_player .title {
+	margin-bottom:3px;
+}
