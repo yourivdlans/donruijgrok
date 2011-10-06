@@ -14,7 +14,9 @@ class PagesController extends AppController
 			'order' => 'position ASC'
 		));
 		
-		$this->set('page', $page);
+		$soundcloud_tracks = $this->getLatestSoundcloudTracks('191915');
+		
+		$this->set(compact('page', 'soundcloud_tracks'));
 		
 		$this->render('view');
 	}
@@ -32,6 +34,20 @@ class PagesController extends AppController
 		$this->title_for_layout .= ' - ' . $page['Page']['title'];
 		
 		$this->set(compact('page'));
+	}
+	
+	function getLatestSoundcloudTracks($soundcloud_user_id, $limit=2)
+	{
+		App::import('Vendor', '/soundcloud/Services/Soundcloud');
+		
+		$soundcloud = new Services_Soundcloud(Configure::read('soundcloud_client_id'), Configure::read('soundcloud_client_secret'));
+		$soundcloud->setCurlOptions(array(
+			CURLOPT_CAINFO => APP . 'vendors' . DS . 'cacert.pem'
+		));
+		
+		$json = $soundcloud->get('users/'.$soundcloud_user_id.'/tracks', array('limit' => $limit));
+		
+		return $json;
 	}
 
 	function admin_index()
