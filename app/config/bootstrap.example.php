@@ -12,3 +12,6 @@ define('LOCALE_EN', 'us_us');
 
 setlocale(LC_ALL, LOCALE_NL);
 date_default_timezone_set('Europe/Amsterdam');
+
+Configure::write('soundcloud_client_id', '');
+Configure::write('soundcloud_client_secret', '');
