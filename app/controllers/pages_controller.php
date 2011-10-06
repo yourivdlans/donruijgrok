@@ -45,7 +45,7 @@ class PagesController extends AppController
 	
 	function getLatestSoundcloudTracks($soundcloud_user_id, $limit=2)
 	{
-		App::import('Vendor', '/soundcloud/Services/Soundcloud');
+		App::import('Vendor', 'Soundcloud', array('file' => 'soundcloud' . DS . 'Services' . DS . 'Soundcloud.php'));
 		
 		$soundcloud = new Services_Soundcloud(Configure::read('soundcloud_client_id'), Configure::read('soundcloud_client_secret'));
 		$soundcloud->setCurlOptions(array(
