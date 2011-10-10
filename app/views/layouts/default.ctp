@@ -104,11 +104,9 @@
 
 
 	<!-- scripts concatenated and minified via ant build script-->
-	<?php
-	echo $this->AssetCompress->script('default');
-	echo $scripts_for_layout;
-	?>
+	<?=$this->AssetCompress->script('default')?>
 	<script type="text/javascript"> Cufon.now(); </script>
+	<?=$scripts_for_layout?>
 	<!-- end scripts-->
 
 	

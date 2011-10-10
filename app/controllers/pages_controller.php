@@ -2,10 +2,11 @@
 class PagesController extends AppController
 {
 	var $name = 'Pages';
+	var $components = array('RequestHandler');
 	
 	function beforeFilter()
 	{
-		$this->Auth->allow('first', 'view');
+		$this->Auth->allow('first', 'view', 'getLatestSoundcloudTracks');
 	}
 	
 	function first()
@@ -14,9 +15,10 @@ class PagesController extends AppController
 			'order' => 'position ASC'
 		));
 		
-		$soundcloud_tracks = $this->getLatestSoundcloudTracks('191915');
+		$get_soundcloud_tracks = true;
+		$soundcloud_id = $this->soundcloud_id;
 		
-		$this->set(compact('page', 'soundcloud_tracks'));
+		$this->set(compact('page', 'get_soundcloud_tracks', 'soundcloud_id'));
 		
 		$this->render('view');
 	}
@@ -31,20 +33,27 @@ class PagesController extends AppController
 		
 		$page = $this->Page->read(null, $id);
 		
+		$get_soundcloud_tracks = false;
+		$soundcloud_id = $this->soundcloud_id;
+		
 		if ( $page['Page']['slug'] == 'home' )
 		{
-			$soundcloud_tracks = $this->getLatestSoundcloudTracks('191915');
-			
-			$this->set('soundcloud_tracks', $soundcloud_tracks);
+			$get_soundcloud_tracks = true;
 		}
 		
 		$this->title_for_layout .= ' - ' . $page['Page']['title'];
 		
-		$this->set(compact('page'));
+		$this->set(compact('page', 'get_soundcloud_tracks', 'soundcloud_id'));
 	}
 	
 	function getLatestSoundcloudTracks($soundcloud_user_id, $limit=2)
 	{
+		$this->autoRender = false;
+		
+		if ( $this->RequestHandler->isAjax() === false ) return false;
+		
+		$this->RequestHandler->setContent('json', 'text/x-json');
+		
 		App::import('Vendor', 'Soundcloud', array('file' => 'soundcloud' . DS . 'Services' . DS . 'Soundcloud.php'));
 		
 		$soundcloud = new Services_Soundcloud(Configure::read('soundcloud_client_id'), Configure::read('soundcloud_client_secret'));

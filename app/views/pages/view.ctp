@@ -1,9 +1,14 @@
 <div class="pages view">
 	<div><?=$page['Page']['content']?></div>
 	<?php
-	if ( isset($soundcloud_tracks) )
+	if ( $get_soundcloud_tracks === true )
 	{
-		echo $this->element('soundcloud_tracks');
+		?>
+		<div id="soundcloud_players">
+			<h3>Don's latest soundcloud tracks!</h3>
+		</div>
+		<?php
+		echo $this->Html->scriptBlock('getSoundCloudTracks('.$soundcloud_id.')', array('inline' => false));
 	}
 	?>
 </div>

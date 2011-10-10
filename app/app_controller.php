@@ -4,6 +4,8 @@ class AppController extends Controller
 	var $components = array('Auth', 'Session');
 	var $title_for_layout = 'Don Ruijgrok';
 	
+	var $soundcloud_id = '191915';
+	
 	function __construct()
 	{
 		parent::__construct();

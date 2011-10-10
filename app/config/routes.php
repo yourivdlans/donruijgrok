@@ -26,6 +26,8 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/views/pages/home.ctp)...
  */
+	Router::parseExtensions('json');
+	
 	Router::connect('/', array('controller' => 'pages', 'action' => 'first'));
 	
 	Router::connect(
