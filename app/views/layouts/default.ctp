@@ -64,6 +64,16 @@
 			</div>
 			<div>
 				<?=$this->Html->link(
+					$this->Html->image('icons/beatport_16.png'),
+					'http://www.beatport.com/artist/don-ruijgrok/132174',
+					array(
+						'escape' => false,
+						'target' => '_blank'
+					)
+				)?>
+			</div>
+			<div>
+				<?=$this->Html->link(
 					$this->Html->image('icons/facebook_16.png'),
 					'http://www.facebook.com/donruijgrok',
 					array(
