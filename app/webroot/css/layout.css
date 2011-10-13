@@ -69,8 +69,18 @@ body {
 	position:absolute;
 	right:30px;
 	text-align:right;
+	width:450px;
 }
 
-#footer div {
+#footer #left {
+	float:left;
+	text-align:left;
+}
+
+#footer #right div {
 	display:inline-block;
+}
+
+#footer #right {
+	float:right;
 }
