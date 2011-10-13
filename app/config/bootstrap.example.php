@@ -15,3 +15,5 @@ date_default_timezone_set('Europe/Amsterdam');
 
 Configure::write('soundcloud_client_id', '');
 Configure::write('soundcloud_client_secret', '');
+
+Configure::write('GA_code' , '');
