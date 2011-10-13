@@ -5,7 +5,14 @@
 .bookingsDates.index table thead th {
 	color:#F4CB0F;
 	font-size:14px;
-	width:15%;
+}
+
+.bookingsDates.index table thead th.date {
+	width:80px;
+}
+
+.bookingsDates.index table thead th.location {
+	width:80px;
 }
 
 .bookingsDates.index table .tickets {

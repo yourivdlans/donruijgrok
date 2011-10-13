@@ -2,9 +2,9 @@
 	<table cellpadding="5" cellspacing="0">
 		<thead>
 			<tr>
-				<th>Date</th>
-				<th>Location</th>
-				<th>Venue</th>
+				<th class="date">Date</th>
+				<th class="location">Location</th>
+				<th class="venue">Venue</th>
 				<th class="tickets">&nbsp;</th>
 			</tr>
 		</thead>
