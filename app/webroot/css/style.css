@@ -211,7 +211,10 @@ td { vertical-align: top; }
    Author: 
    ========================================================================== */
 
-
+   
+/* Removes skype styles */
+span.skype_pnh_container {display:none !important;}
+span.skype_pnh_print_container {display:inline !important;}
 
 
 

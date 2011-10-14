@@ -4,6 +4,7 @@
 !/app/config/bootstrap.example.php
 !/app/config/database.example.php
 !/app/config/asset_compress.ini
+!/app/config/vhost.example.conf
 /app/tmp/*
 /app/tmp/cache/models/*
 /app/tmp/cache/persistent/*
