@@ -39,13 +39,15 @@ body {
 	text-align:center;
 }
 
+#menu .item-wrapper { display:inline-block; }
+
 #menu .item {
 	color:#848484;
 	cursor:pointer;
-	font-size:24px;
-	height:50px;
+	display:block;
+	font-size:15px;
 	margin-right:5px;
-	padding:10px 10px 6px;
+	padding:10px;
 	text-decoration:none;
 	text-transform:uppercase;
 }

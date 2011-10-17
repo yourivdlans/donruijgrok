@@ -5,7 +5,8 @@
 
 
 Cufon.replace('#menu .item', {
-	hover: true
+	hover: true,
+	fontSize: '24px'
 });
 
 $(document).ready(function() {
@@ -14,4 +15,6 @@ $(document).ready(function() {
 		transitionIn: 'elastic',
 		transitionOut: 'elastic'
 	});
+	
+	$('#menu .item').css('padding', '10px 10px 4px');
 });

@@ -38,11 +38,15 @@ foreach ( $pages as $page )
 		$htmlOptions['class'] .= ' last';
 	}
 	
+	echo '<div class="item-wrapper">';
+	
 	echo $this->Html->link(
 		$page['Page']['title'],
 		$url,
 		$htmlOptions
 	);
+	
+	echo '</div>';
 	
 	$i++;
 }
