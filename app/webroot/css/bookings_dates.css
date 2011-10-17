@@ -23,3 +23,7 @@
 .bookingsDates.index table tbody td a:visited {
 	color:#fff0aa;
 }
+
+.bookingsDates.index table tbody tr.today td {
+	background-color:#272727;
+}

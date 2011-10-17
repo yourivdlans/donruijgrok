@@ -12,6 +12,9 @@ class BookingsDatesController extends AppController
 	function index()
 	{
 		$bookingsDates = $this->BookingsDate->find('all', array(
+			'conditions' => array(
+				'date >=' => date('Y-m-d')
+			),
 			'order' => 'date'
 		));
 		

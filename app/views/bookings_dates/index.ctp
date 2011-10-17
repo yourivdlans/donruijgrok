@@ -19,8 +19,10 @@
 				$tickets_url = $this->Html->link('Tickets', $bookingDate['BookingsDate']['tickets_url'], array('target' => '_blank'));
 			}
 			
+			$tr_class = ( $bookingDate['BookingsDate']['date'] == date('Y-m-d') ? ' class="today"' : null );
+			
 			?>
-			<tr>
+			<tr<?=$tr_class?>>
 				<td><?=$this->Time->format('d/m/Y', $bookingDate['BookingsDate']['date'])?></td>
 				<td><?=$bookingDate['BookingsDate']['location']?></td>
 				<td><?=$bookingDate['BookingsDate']['venue']?></td>
