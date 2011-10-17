@@ -8,19 +8,19 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="dns-prefetch" href="//ajax.googleapis.com" />
+	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
 	<title><?=$title_for_layout?></title>
 	<meta name="description" content="Don Ruijgrok a techno dj from holland, winner of vinylized 2011">
 	<meta name="author" content="ITflows">
-	
+
 	<?=$this->Html->meta('icon')?>
-	
+
 	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<?=$this->AssetCompress->css('default', array('media' => 'all'))?>
 	
-
 	<meta name="application-name" content="Don Ruijgrok" />
 	<meta name="msapplication-tooltip" content="Don Ruijgrok, a dutch techno artist." />
 
