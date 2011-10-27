@@ -3,6 +3,7 @@ class PagesController extends AppController
 {
 	var $name = 'Pages';
 	var $components = array('RequestHandler');
+	var $helpers = array('Html', 'Form', 'PaginatorExtended');
 	
 	function beforeFilter()
 	{
