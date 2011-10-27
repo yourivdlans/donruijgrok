@@ -16,7 +16,7 @@ class AppController extends Controller
 	
 	function beforeFilter()
 	{
-		$this->Auth->loginAction = array('admin' => true, 'controller' => 'users', 'action' => 'login');
+		$this->Auth->autoRedirect = false;
 		
 		$this->Auth->loginRedirect = array('admin' => true, 'controller' => 'pages', 'action' => 'index');
 		$this->Auth->logoutRedirect = array('admin' => false, 'controller' => 'pages', 'action' => 'first');
