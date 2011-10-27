@@ -3,4 +3,7 @@ echo $this->Session->flash('auth');
 echo $this->Form->create('User');
 echo $this->Form->input('username');
 echo $this->Form->input('password');
-echo $this->Form->end('Login');
+echo $this->Form->end(array(
+	'label' => 'Login',
+	'class' => 'btn primary'
+));
