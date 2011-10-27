@@ -31,6 +31,8 @@
 	Router::connect('/sitemap', array('controller' => 'sitemaps', 'action' => 'index'));
 	
 	Router::connect('/', array('controller' => 'pages', 'action' => 'first'));
+	Router::connect('/admin', array('controller' => 'users', 'action' => 'login', 'admin' => true));
+	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 	
 	Router::connect(
 		'/pages/:id:slug',
@@ -44,8 +46,3 @@
 			'slug' => '-.*?'
 		)
 	);
-	
-	Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));
-	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
-	
-	Router::connect('/admin', array('controller' => 'pages', 'action' => 'index', 'admin' => true));
