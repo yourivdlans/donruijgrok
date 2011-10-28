@@ -6,17 +6,20 @@ class BookingsDate extends AppModel
 	var $validate = array(
 		'date' => array(
 			'date' => array(
-				'rule' => array('date')
+				'rule' => array('date'),
+				'message' => 'Must be a date'
 			)
 		),
 		'location' => array(
 			'notempty' => array(
-				'rule' => array('notempty')
+				'rule' => array('notempty'),
+				'message' => 'Can not be empty'
 			)
 		),
 		'venue' => array(
 			'notempty' => array(
-				'rule' => array('notempty')
+				'rule' => array('notempty'),
+				'message' => 'Can not be empty'
 			)
 		)
 	);

@@ -2,7 +2,7 @@
 class BookingsDatesController extends AppController
 {
 	var $name = 'BookingsDates';
-	var $helpers = array('Html', 'Time');
+	var $helpers = array('Html', 'Form', 'Time', 'PaginatorExtended');
 	
 	function beforeFilter()
 	{
@@ -23,6 +23,10 @@ class BookingsDatesController extends AppController
 
 	function admin_index()
 	{
+		$this->paginate = array(
+			'order' => 'date'
+		);
+		
 		$this->set('bookingsDates', $this->paginate());
 	}
 
