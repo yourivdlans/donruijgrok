@@ -26,16 +26,6 @@ class BookingsDatesController extends AppController
 		$this->set('bookingsDates', $this->paginate());
 	}
 
-	function admin_view($id = null)
-	{
-		if (!$id)
-		{
-			$this->Session->setFlash(__('Invalid bookings date', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->set('bookingsDate', $this->BookingsDate->read(null, $id));
-	}
-
 	function admin_add()
 	{
 		if (!empty($this->data))
