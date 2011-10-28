@@ -18,7 +18,7 @@ class AppController extends Controller
 	{
 		$this->Auth->autoRedirect = false;
 		
-		$this->Auth->loginRedirect = array('admin' => true, 'controller' => 'pages', 'action' => 'index');
+		$this->Auth->loginRedirect = array('admin' => true, 'controller' => 'dashboard', 'action' => 'index');
 		$this->Auth->logoutRedirect = array('admin' => false, 'controller' => 'pages', 'action' => 'first');
 	}
 	
@@ -38,6 +38,10 @@ class AppController extends Controller
 		else
 		{
 			$this->layout = 'admin';
+			
+			$menu = $this->getAdminMenu();
+			
+			$this->set(compact('menu'));
 		}
 	}
 	
@@ -50,5 +54,17 @@ class AppController extends Controller
 		));
 		
 		return $pages;
+	}
+	
+	function getAdminMenu()
+	{
+		$controllers = array(
+			'dashboard' => 'Dashboard',
+			'pages' => 'Pages',
+			'pictures' => 'Pictures',
+			'bookings_dates' => 'Bookings & Dates'
+		);
+		
+		return $controllers;
 	}
 }
