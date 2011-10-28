@@ -64,7 +64,7 @@ class PagesController extends AppController
 			CURLOPT_CAINFO => APP . 'vendors' . DS . 'cacert.pem'
 		));
 		
-		$json = $soundcloud->get('users/'.$soundcloud_user_id.'/tracks', array('limit' => $limit));
+		$json = $soundcloud->get('users/'.$soundcloud_user_id.'/playlists', array('limit' => $limit));
 		
 		return $json;
 	}
