@@ -28,12 +28,12 @@ class PicturesController extends AppController
 			$this->Picture->create();
 			if ($this->Picture->save($this->data))
 			{
-				$this->Session->setFlash(__('The picture has been saved', true));
+				$this->Session->setFlash(__('The picture has been saved', true), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			}
 			else
 			{
-				$this->Session->setFlash(__('The picture could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The picture could not be saved. Please, try again.', true), 'flash_error');
 			}
 		}
 	}
@@ -47,10 +47,10 @@ class PicturesController extends AppController
 		}
 		if ($this->Picture->delete($id))
 		{
-			$this->Session->setFlash(__('Picture deleted', true));
+			$this->Session->setFlash(__('Picture deleted', true), 'flash_success');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Picture was not deleted', true));
+		$this->Session->setFlash(__('Picture was not deleted', true), 'flash_error');
 		$this->redirect(array('action' => 'index'));
 	}
 }

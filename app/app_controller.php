@@ -1,7 +1,12 @@
 <?php
 class AppController extends Controller
 {
-	var $components = array('Auth', 'Session');
+	var $components = array(
+		'Auth' => array(
+			'flashElement' => 'flash_error'
+		),
+		'Session'
+	);
 	var $title_for_layout = 'Don Ruijgrok';
 	
 	var $soundcloud_id = '191915';
@@ -37,6 +42,18 @@ class AppController extends Controller
 		// Back-end
 		else
 		{
+			// Overwrite default flash element
+			if ( $this->Session->check('Message.flash') )
+			{
+				$flash = $this->Session->read('Message.flash');
+				
+				if ($flash['element'] == 'default')
+				{
+					$flash['element'] = 'flash_message';
+					$this->Session->write('Message.flash', $flash);
+				}
+			}
+			
 			$this->layout = 'admin';
 			
 			$menu = $this->getAdminMenu();

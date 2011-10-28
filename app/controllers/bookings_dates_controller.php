@@ -37,12 +37,12 @@ class BookingsDatesController extends AppController
 			$this->BookingsDate->create();
 			if ($this->BookingsDate->save($this->data))
 			{
-				$this->Session->setFlash(__('The bookings date has been saved', true));
+				$this->Session->setFlash(__('The bookings date has been saved', true), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			}
 			else
 			{
-				$this->Session->setFlash(__('The bookings date could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The bookings date could not be saved. Please, try again.', true), 'flash_error');
 			}
 		}
 	}
@@ -58,12 +58,12 @@ class BookingsDatesController extends AppController
 		{
 			if ($this->BookingsDate->save($this->data))
 			{
-				$this->Session->setFlash(__('The bookings date has been saved', true));
+				$this->Session->setFlash(__('The bookings date has been saved', true), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			}
 			else
 			{
-				$this->Session->setFlash(__('The bookings date could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The bookings date could not be saved. Please, try again.', true), 'flash_error');
 			}
 		}
 		if (empty($this->data))
@@ -81,10 +81,10 @@ class BookingsDatesController extends AppController
 		}
 		if ($this->BookingsDate->delete($id))
 		{
-			$this->Session->setFlash(__('Bookings date deleted', true));
+			$this->Session->setFlash(__('Bookings date deleted', true), 'flash_success');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Bookings date was not deleted', true));
+		$this->Session->setFlash(__('Bookings date was not deleted', true), 'flash_error');
 		$this->redirect(array('action' => 'index'));
 	}
 }

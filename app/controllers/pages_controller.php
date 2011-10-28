@@ -7,6 +7,8 @@ class PagesController extends AppController
 	
 	function beforeFilter()
 	{
+		parent::beforeFilter();
+		
 		$this->Auth->allow('first', 'view', 'getLatestSoundcloudTracks');
 	}
 	
@@ -83,12 +85,12 @@ class PagesController extends AppController
 			$this->Page->create();
 			if ($this->Page->save($this->data))
 			{
-				$this->Session->setFlash(__('The page has been saved', true));
+				$this->Session->setFlash(__('The page has been saved', true), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			}
 			else
 			{
-				$this->Session->setFlash(__('The page could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The page could not be saved. Please, try again.', true), 'flash_error');
 			}
 		}
 	}
@@ -104,12 +106,12 @@ class PagesController extends AppController
 		{
 			if ($this->Page->save($this->data))
 			{
-				$this->Session->setFlash(__('The page has been saved', true));
+				$this->Session->setFlash(__('The page has been saved', true), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			}
 			else
 			{
-				$this->Session->setFlash(__('The page could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The page could not be saved. Please, try again.', true), 'flash_error');
 			}
 		}
 		if (empty($this->data))
@@ -127,10 +129,10 @@ class PagesController extends AppController
 		}
 		if ($this->Page->delete($id))
 		{
-			$this->Session->setFlash(__('Page deleted', true));
+			$this->Session->setFlash(__('Page deleted', true), 'flash_success');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Page was not deleted', true));
+		$this->Session->setFlash(__('Page was not deleted', true), 'flash_error');
 		$this->redirect(array('action' => 'index'));
 	}
 }
