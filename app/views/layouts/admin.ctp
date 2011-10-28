@@ -18,9 +18,17 @@
 			<div class="container">
 				<a href="#" class="brand">Don Ruijgrok</a>
 				<ul class="nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<?php
+					foreach ( $menu as $controller => $controllerName )
+					{
+						$active = ( $this->params['controller'] == $controller ? ' class="active"' : null );
+						
+						echo '<li'.$active.'>'.$this->Html->link($controllerName, array('controller' => $controller, 'action' => 'index')).'</li>';
+					}
+					?>
+				</ul>
+				<ul class="nav secondary-nav">
+					<li><?=$this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout', 'admin' => false))?></li>
 				</ul>
 			</div>
 		</div>
