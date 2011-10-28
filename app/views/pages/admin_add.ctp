@@ -1,4 +1,9 @@
-<?php $errors = $this->Form->validationErrors['Page'];?>
+<?php
+$errors = $this->Form->validationErrors['Page'];
+
+echo $this->Html->script('tinymce/tiny_mce.js', array('inline' => false));
+echo $this->Html->script('tinymce_build.js', array('inline' => false));
+?>
 <div class="row">
 	<div class="span16 columns">
 	<?php echo $this->Form->create('Page', array(
@@ -19,16 +24,6 @@
         	echo $this->Form->input('title',array('after'=>$after));
         	?>
         </div>
-		<div class="clearfix<?php if (!empty($errors) && array_key_exists('slug',$errors)) { echo ' error'; }?>">
-			<?php
-			echo $this->Form->label('slug');
-        	$after = '';
-        	if (!empty($errors) && array_key_exists('slug',$errors)) {
-        		$after = '<span class="help-inline">'.$errors['slug'].'</span>';
-        	}
-        	echo $this->Form->input('slug',array('after'=>$after));
-        	?>
-        </div>
 		<div class="clearfix<?php if (!empty($errors) && array_key_exists('content',$errors)) { echo ' error'; }?>">
 			<?php
 			echo $this->Form->label('content');
@@ -37,16 +32,6 @@
         		$after = '<span class="help-inline">'.$errors['content'].'</span>';
         	}
         	echo $this->Form->input('content',array('after'=>$after));
-        	?>
-        </div>
-		<div class="clearfix<?php if (!empty($errors) && array_key_exists('position',$errors)) { echo ' error'; }?>">
-			<?php
-			echo $this->Form->label('position');
-        	$after = '';
-        	if (!empty($errors) && array_key_exists('position',$errors)) {
-        		$after = '<span class="help-inline">'.$errors['position'].'</span>';
-        	}
-        	echo $this->Form->input('position',array('after'=>$after));
         	?>
         </div>
 		<div class="actions">

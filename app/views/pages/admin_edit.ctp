@@ -1,4 +1,9 @@
-<?php $errors = $this->Form->validationErrors['Page'];?>
+<?php
+$errors = $this->Form->validationErrors['Page'];
+
+echo $this->Html->script('tinymce/tiny_mce.js', array('inline' => false));
+echo $this->Html->script('tinymce_build.js', array('inline' => false));
+?>
 <div class="row">
 	<div class="span16 columns">
 	<?php echo $this->Form->create('Page', array(
@@ -29,16 +34,6 @@
         	echo $this->Form->input('title',array('after'=>$after));
         	?>
         </div>
-		<div class="clearfix<?php if (!empty($errors) && array_key_exists('slug',$errors)) { echo ' error'; }?>">
-			<?php
-			echo $this->Form->label('slug');
-        	$after = '';
-        	if (!empty($errors) && array_key_exists('slug',$errors)) {
-        		$after = '<span class="help-inline">'.$errors['slug'].'</span>';
-        	}
-        	echo $this->Form->input('slug',array('after'=>$after));
-        	?>
-        </div>
 		<div class="clearfix<?php if (!empty($errors) && array_key_exists('content',$errors)) { echo ' error'; }?>">
 			<?php
 			echo $this->Form->label('content');
@@ -49,16 +44,6 @@
         	echo $this->Form->input('content',array('after'=>$after));
         	?>
         </div>
-		<div class="clearfix<?php if (!empty($errors) && array_key_exists('position',$errors)) { echo ' error'; }?>">
-			<?php
-			echo $this->Form->label('position');
-        	$after = '';
-        	if (!empty($errors) && array_key_exists('position',$errors)) {
-        		$after = '<span class="help-inline">'.$errors['position'].'</span>';
-        	}
-        	echo $this->Form->input('position',array('after'=>$after));
-        	?>
-        </div>
 		<div class="actions">
 			<?php echo $this->Form->button(__('Save', true),array('class'=>'btn primary'));?>
 		</div>
@@ -67,6 +52,6 @@
 	</div>
 </div>
 <div class="well">
-	<?php echo $this->Html->link(__('Borrar', true), array('action' => 'delete', $this->Form->value('Page.id')), array('class'=>'btn danger'), sprintf(__('Estas seguro que quieres borrar el # %s?', true), $this->Form->value('Page.id'))); ?>
+	<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Page.id')), array('class'=>'btn danger'), sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Page.id'))); ?>
 	<?php echo $this->Html->link(__('List Pages', true), array('action' => 'index'), array('class'=>'btn'));?>
 </div>

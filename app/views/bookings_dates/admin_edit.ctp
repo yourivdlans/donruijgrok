@@ -67,6 +67,6 @@
 	</div>
 </div>
 <div class="well">
-	<?php echo $this->Html->link(__('Borrar', true), array('action' => 'delete', $this->Form->value('BookingsDate.id')), array('class'=>'btn danger'), sprintf(__('Estas seguro que quieres borrar el # %s?', true), $this->Form->value('BookingsDate.id'))); ?>
+	<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('BookingsDate.id')), array('class'=>'btn danger'), sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('BookingsDate.id'))); ?>
 	<?php echo $this->Html->link(__('List Bookings Dates', true), array('action' => 'index'), array('class'=>'btn'));?>
 </div>

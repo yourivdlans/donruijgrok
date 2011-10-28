@@ -20,8 +20,8 @@
 	<tr<?=$class;?>>
 		<td><?=$page['Page']['id']; ?>&nbsp;</td>
 		<td><?=$page['Page']['title']; ?>&nbsp;</td>
-		<td><?=$page['Page']['created']; ?>&nbsp;</td>
-		<td><?=$page['Page']['modified']; ?>&nbsp;</td>
+		<td><?=$this->Time->timeAgoInWords($page['Page']['created'], array('format' => 'd-m-Y')); ?>&nbsp;</td>
+		<td><?=$this->Time->timeAgoInWords($page['Page']['modified'], array('format' => 'd-m-Y')); ?>&nbsp;</td>
 		<td>
 			<?=$this->Html->link(__('Edit', true), array('action' => 'edit', $page['Page']['id']), array('class'=>'btn small')); ?>
 			<?=$this->Html->link(__('Delete', true), array('action' => 'delete', $page['Page']['id']), array('class'=>'btn small danger'), sprintf(__('Are you sure you want to delete # %s?', true), $page['Page']['id'])); ?>

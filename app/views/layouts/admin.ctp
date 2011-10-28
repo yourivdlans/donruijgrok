@@ -9,6 +9,13 @@
 	<?=$this->Html->css('bootstrap.min')?>
 	<?=$this->Html->css('admin')?>
 	
+	<?=$this->Html->script('libs/jquery-1.6.3.min.js')?>
+	<?=$this->Html->scriptBlock("
+		var WEBROOT = '".$this->Html->url('/', true)."';
+		var DOCROOT = '".str_replace('\\', '/', ROOT)."';
+	")?>
+	<?=$scripts_for_layout?>
+	
 	<?=$this->Html->meta('icon')?>
 </head>
 

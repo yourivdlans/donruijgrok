@@ -56,7 +56,7 @@ echo "<?php \$errors = \$this->Form->validationErrors['{$modelClass}'];?>\n"
 </div>
 <div class="well">
 <?php if (strpos($action, 'add') === false): ?>
-	<?php echo "<?php echo \$this->Html->link(__('Borrar', true), array('action' => 'delete', \$this->Form->value('{$modelClass}.{$primaryKey}')), array('class'=>'btn danger'), sprintf(__('Estas seguro que quieres borrar el # %s?', true), \$this->Form->value('{$modelClass}.{$primaryKey}'))); ?>\n";?>
+	<?php echo "<?php echo \$this->Html->link(__('Delete', true), array('action' => 'delete', \$this->Form->value('{$modelClass}.{$primaryKey}')), array('class'=>'btn danger'), sprintf(__('Are you sure you want to delete # %s?', true), \$this->Form->value('{$modelClass}.{$primaryKey}'))); ?>\n";?>
 <?php endif;?>
 	<?php echo "<?php echo \$this->Html->link(__('List " . $pluralHumanName . "', true), array('action' => 'index'), array('class'=>'btn'));?>\n";?>
 <?php

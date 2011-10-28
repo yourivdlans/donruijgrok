@@ -34,15 +34,15 @@ foreach ($fields as $field) {
 	    <div class="well">
 <?php
 	echo "\t\t\t<?php echo \$this->Html->link(__('Edit " . $singularHumanName ."', true), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']),array('class'=>'btn')); ?>\n";
-	echo "\t\t\t<?php echo \$this->Html->link(__('Delete " . $singularHumanName . "', true), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn danger'), sprintf(__('Estas seguro que quieres borrar el # %s?', true), \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
-	echo "\t\t\t<?php echo \$this->Html->link(__('Lista " . $pluralHumanName . "', true), array('action' => 'index'),array('class'=>'btn')); ?>\n";
+	echo "\t\t\t<?php echo \$this->Html->link(__('Delete " . $singularHumanName . "', true), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn danger'), sprintf(__('Are you sure you want to delete # %s?', true), \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
+	echo "\t\t\t<?php echo \$this->Html->link(__('List " . $pluralHumanName . "', true), array('action' => 'index'),array('class'=>'btn')); ?>\n";
 	echo "\t\t\t<?php echo \$this->Html->link(__('New " . $singularHumanName . "', true), array('action' => 'add'),array('class'=>'btn primary')); ?>\n";
 
 	$done = array();
 	foreach ($associations as $type => $data) {
 		foreach ($data as $alias => $details) {
 			if ($details['controller'] != $this->name && !in_array($details['controller'], $done)) {
-				echo "\t\t\t<?php echo \$this->Html->link(__('Lista " . Inflector::humanize($details['controller']) . "', true), array('controller' => '{$details['controller']}', 'action' => 'index'),array('class'=>'btn')); ?>\n";
+				echo "\t\t\t<?php echo \$this->Html->link(__('List " . Inflector::humanize($details['controller']) . "', true), array('controller' => '{$details['controller']}', 'action' => 'index'),array('class'=>'btn')); ?>\n";
 				echo "\t\t\t<?php echo \$this->Html->link(__('New " .  Inflector::humanize(Inflector::underscore($alias)) . "', true), array('controller' => '{$details['controller']}', 'action' => 'add'),array('class'=>'btn primary')); ?>\n";
 				$done[] = $details['controller'];
 			}

@@ -3,7 +3,7 @@ class PagesController extends AppController
 {
 	var $name = 'Pages';
 	var $components = array('RequestHandler');
-	var $helpers = array('Html', 'Form', 'PaginatorExtended');
+	var $helpers = array('Html', 'Form', 'Time', 'PaginatorExtended');
 	
 	function beforeFilter()
 	{
@@ -69,6 +69,10 @@ class PagesController extends AppController
 
 	function admin_index()
 	{
+		$this->paginate = array(
+			'order' => 'position'
+		);
+		
 		$this->set('pages', $this->paginate());
 	}
 
