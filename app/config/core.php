@@ -302,3 +302,11 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
+
+	// Include the media plugin config
+	require APP . '/plugins/media/config/core.php';
+	
+	$s = array('convert' => 'image/jpeg', 'fitCrop' => array(100, 100));
+	$l = array('convert' => 'image/jpeg', 'fit' => array(1024, 768));
+	
+	Configure::write('Media.filter.image', compact('s', 'l'));

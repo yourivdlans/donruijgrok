@@ -12,43 +12,61 @@ class Picture extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
-		'filename' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+		)
 	);
 	
-	var $picturesPath = '/img/pictures/';
+	var $actsAs = array('Media.Transfer', 'Media.Generator', 'Media.Coupler');
 	
-	function afterFind($results)
+	var $virtualFields = array(
+		'path' => "CONCAT_WS('/', dirname, basename)"
+	);
+	
+	public function beforeDelete($cascade = true)
 	{
-		if(!Set::numeric(array_keys($results)))
+		if (!$cascade)
 		{
-			$results = array($results);
+			return true;
+		}
+
+		$result = $this->find('first', array(
+			'conditions' => array($this->primaryKey => $this->id),
+			'fields'	 => array('dirname', 'basename'),
+			'recursive'  => -1
+		));
+		
+		if (empty($result))
+		{
+			return false;
+		}
+
+		$pattern  = MEDIA_FILTER . "*/";
+		$pattern .= $result[$this->alias]['dirname'] . '/';
+		$pattern .= pathinfo($result[$this->alias]['basename'], PATHINFO_FILENAME);
+
+		$files = glob("{$pattern}.*");
+
+		$name = Mime_Type::guessName($result[$this->alias]['basename']);
+		$versions = array_keys(Configure::read('Media.filter.' . $name));
+
+		if (count($files) > count($versions))
+		{
+			$message  = 'MediaFile::beforeDelete - ';
+			$message .= "Pattern `{$pattern}` matched more than number of versions. ";
+			$message .= "Failing deletion of versions and record for `Media@{$this->id}`.";
+			CakeLog::write('warning', $message);
+			return false;
+		}
+
+		foreach ($files as $file)
+		{
+			$File = new File($file);
+
+			if (!$File->delete())
+			{
+				return false;
+			}
 		}
 		
-		foreach ( $results as &$result )
-		{
-			if ( !isset($result['Picture']) ) continue;
-			
-			$result['Picture']['thumb'] = $this->getThumbnailFromFilename($result['Picture']['filename']);
-		}
-		
-		return $results;
-	}
-	
-	function getThumbnailFromFilename($filename)
-	{
-		$pInfo = pathinfo($filename);
-		$thumb = $pInfo['filename'].'_thumb.'.strtolower($pInfo['extension']);
-		
-		return $thumb;
+		return true;
 	}
 }

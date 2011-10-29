@@ -16,8 +16,8 @@
 		?>
 		<div class="picture">
 			<?=$this->Html->link(
-				$this->Html->image($picturesPath . $picture['Picture']['thumb']),
-				$picturesPath . $picture['Picture']['filename'],
+				$this->Html->image('/media/filter/s/' . $picture['Picture']['dirname'] . '/' . $picture['Picture']['basename']),
+				'/media/filter/l/' . $picture['Picture']['dirname'] . '/' . $picture['Picture']['basename'],
 				$htmlOptions
 			)?>
 		</div>

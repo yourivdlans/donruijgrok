@@ -14,6 +14,7 @@
 /app/tmp/tests/*
 /app/webroot/cache_*/*
 /app/webroot/img/pictures/*
+/app/webroot/media/*
 /app/webroot/img/uploads_tiny/*
 !/app/webroot/img/uploads_tiny/empty
 /plugins

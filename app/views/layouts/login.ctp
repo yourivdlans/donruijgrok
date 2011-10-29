@@ -6,8 +6,7 @@
 	<title><?=$title_for_layout?></title>
 	<meta name="author" content="ITflows">
 	
-	<?=$this->Html->css('style')?>
-	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css">
+	<?=$this->Html->css('bootstrap.min')?>
 	<?=$this->Html->css('login')?>
 	
 	<?=$this->Html->meta('icon')?>

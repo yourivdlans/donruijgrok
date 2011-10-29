@@ -2,6 +2,7 @@
 class PicturesController extends AppController
 {
 	var $name = 'Pictures';
+	var $helpers = array('Time');
 
 	function beforeFilter()
 	{
@@ -10,10 +11,9 @@ class PicturesController extends AppController
 	
 	function index()
 	{
-		$picturesPath = $this->Picture->picturesPath;
 		$pictures = $this->Picture->find('all');
 		
-		$this->set(compact('picturesPath', 'pictures'));
+		$this->set(compact('pictures'));
 	}
 	
 	function admin_index()
