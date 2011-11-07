@@ -13,13 +13,17 @@ class PicturesController extends AppController
 	
 	function index()
 	{
-		$pictures = $this->Picture->find('all');
+		$pictures = $this->Picture->find('all', array(
+			'order' => 'created DESC'
+		));
 		
 		$this->set(compact('pictures'));
 	}
 	
 	function admin_index()
 	{
+		$this->paginate['order'] = 'created DESC';
+		
 		$this->set('pictures', $this->paginate());
 	}
 
