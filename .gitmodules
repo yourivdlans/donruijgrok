@@ -4,6 +4,3 @@
 [submodule "app/vendors/soundcloud"]
 	path = app/vendors/soundcloud
 	url = git://github.com/mptre/php-soundcloud.git
-[submodule "app/plugins/media"]
-	path = app/plugins/media
-	url = git://github.com/yourivdlans/media.git
